@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .auth-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .auth-container h2 {
+            margin-bottom: 20px;
+        }
+        .auth-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .auth-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .auth-container button:hover {
+            background-color: #0056b3;
+        }
+        .toggle-link {
+            margin-top: 10px;
+            color: #007bff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .toggle-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js"></script>
+</head>
+<body>
+    <div class="auth-container" id="authContainer">
+        <h2 id="formTitle">Log In</h2>
+        <form id="authForm">
+            <input type="email" id="emailInput" placeholder="Email" aria-label="Email Address" required />
+            <input type="password" id="passwordInput" placeholder="Password" aria-label="Password" required />
+            <button type="submit" id="authBtn">Log In</button>
+        </form>
+        <a class="toggle-link" id="toggleLink">Don't have an account? Sign Up</a>
+    </div>
+
+    <script>
+        // Firebase configuration
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+
+        const firebaseConfig = {
+            // Replace with your Firebase config
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        const formTitle = document.getElementById("formTitle");
+        const authForm = document.getElementById("authForm");
+        const authBtn = document.getElementById("authBtn");
+        const toggleLink = document.getElementById("toggleLink");
+        let isLogin = true; // Tracks if the form is in login mode
+
+        toggleLink.addEventListener("click", () => {
+            isLogin = !isLogin;
+            formTitle.textContent = isLogin ? "Log In" : "Sign Up";
+            authBtn.textContent = isLogin ? "Log In" : "Sign Up";
+            toggleLink.textContent = isLogin ? "Don't have an account? Sign Up" : "Already have an account? Log In";
+        });
+
+        authForm.addEventListener("submit", (event) => {
+            event.preventDefault(); // Prevent form submission
+            const email = document.getElementById("emailInput").value;
+            const password = document.getElementById("passwordInput").value;
+
+            if (isLogin) {
+                // Log in functionality
+                signInWithEmailAndPassword(auth, email, password)
+                    .then((userCredential) => {
+                        alert("Login successful!");
+                        window.location.href = "index.html"; // Redirect to main app page
+                    })
+                    .catch((error) => {
+                        alert(`Error: ${error.message}`);
+                    });
+            } else {
+                // Sign up functionality
+                createUserWithEmailAndPassword(auth, email, password)
+                    .then((userCredential) => {
+                        alert("Sign-up successful!");
+                        window.location.href = "index.html"; // Redirect to main app page
+                    })
+                    .catch((error) => {
+                        alert(`Error: ${error.message}`);
+                    });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    margin: 20px;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+}
+#taskInputSection, #searchSection {
+    margin-bottom: 20px;
+}
+input, select, button {
+    margin: 5px;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+input:focus, select:focus, button:focus {
+    outline: none;
+    border-color: #007BFF;
+}
+
+/* Task List Styles */
+#taskList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 600px;
+}
+li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+    background-color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+li:hover {
+    background-color: #f1f1f1;
+}
+li.completed span {
+    text-decoration: line-through;
+    color: gray;
+}
+
+/* Buttons */
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Delete and Edit Buttons */
+button.delete {
+    background-color: red;
+}
+button.delete:hover {
+    background-color: darkred;
+}
+button.edit {
+    background-color: orange;
+}
+button.edit:hover {
+    background-color: darkorange;
+}
+
+/* Task Colors Based on Priority */
+.low-priority {
+    border-left: 5px solid green;
+}
+.medium-priority {
+    border-left: 5px solid orange;
+}
+.high-priority {
+    border-left: 5px solid red;
+}
+body.dark-mode li {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+body.dark-mode li:hover {
+    background-color: #292929;
+}
+
+/* Progress Bar */
+#progressContainer {
+    margin: 20px 0;
+    text-align: center;
+}
+progress {
+    width: 100%;
+    height: 20px;
+    border: none;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #e0e0e0;
+}
+progress::-webkit-progress-bar {
+    background-color: #e0e0e0;
+    border-radius: 5px;
+}
+progress::-webkit-progress-value {
+    background-color: #007BFF;
+    border-radius: 5px;
+}
+body.dark-mode progress::-webkit-progress-bar {
+    background-color: #333333;
+}
+body.dark-mode progress::-webkit-progress-value {
+    background-color: #007BFF;
+}
+/* Light Blue Theme */
+body {
+    background-color: #e6f7ff; /* Light blue background */
+    color: #00334d; /* Darker blue text */
+}
+
+#taskInputSection, #searchSection {
+    background-color: #cceeff; /* Slightly darker blue for input section */
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+input, select, button {
+    background-color: #ffffff; /* White background for inputs/buttons */
+    border: 1px solid #0099cc; /* Blue border */
+    border-radius: 5px;
+    color: #00334d; /* Dark blue text */
+}
+
+button {
+    background-color: #0099cc; /* Bright blue button */
+    color: white;
+}
+
+button:hover {
+    background-color: #0077a3; /* Darker blue on hover */
+}
+
+/* Task List Styles */
+li {
+    background-color: #ffffff; /* White task background */
+    border-left: 5px solid #0099cc; /* Blue accent for tasks */
+    color: #00334d; /* Dark blue text */
+}
+
+li.completed span {
+    text-decoration: line-through;
+    color: #808080; /* Gray for completed tasks */
+}
+
+/* Priority styles */
+.low-priority {
+    border-left: 5px solid #66ff99; /* Green */
+}
+
+.medium-priority {
+    border-left: 5px solid #ffcc66; /* Orange */
+}
+
+.high-priority {
+    border-left: 5px solid #ff6666; /* Red */
+}
+
+/* Progress Bar */
+progress {
+    width: 100%;
+    height: 20px;
+}
+
+#progressContainer {
+    color: #00334d; /* Match text color */
+}
+#sortSection {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#sortTasks {
+    padding: 8px;
+    font-size: 14px;
+}
+/* Category Header */
+.category-header {
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #e0f7fa;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    text-align: left;
+}
+
+/* Hidden Class for Collapsing */
+.hidden {
+    display: none;
+}
+
+/* Tasks under each category */
+.category-tasks {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Category Container */
+.category-container {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 8px;
+}
+#progressChartContainer {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}

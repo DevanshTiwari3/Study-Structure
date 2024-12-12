@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>To-Do List</h1>
+    </header>
+
+    <!-- Input Section -->
+    <section id="taskInputContainer">
+        <input type="text" id="taskInput" placeholder="Enter your task..." aria-label="Task Description" />
+        <select id="taskPriority" aria-label="Task Priority">
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+        </select>
+        <select id="taskCategory" aria-label="Task Category">
+            <option value="Work">Work</option>
+            <option value="Personal">Personal</option>
+            <option value="Shopping">Shopping</option>
+        </select>
+        <input type="date" id="taskDate" aria-label="Due Date" />
+        <button id="addTask">Add Task</button>
+    </section>
+
+    <!-- Search Section -->
+    <section id="searchSection">
+        <input type="text" id="searchTasks" placeholder="Search tasks..." aria-label="Search Tasks" />
+    </section>
+
+    <!-- Task List -->
+    <section id="taskListContainer">
+        <ul id="taskList" aria-label="Task List"></ul>
+    </section>
+
+    <!-- Progress Section -->
+    <section id="progressContainer">
+        <progress id="progressBar" value="0" max="100" aria-label="Task Progress"></progress>
+        <span id="progressText">0% Completed</span>
+    </section>
+
+    <!-- Actions Section -->
+    <section id="actions">
+        <button id="clearTasks">Clear All Tasks</button>
+    </section>
+
+    <!-- Sort Section -->
+    <section id="sortSection">
+        <label for="sortTasks">Sort by:</label>
+        <select id="sortTasks">
+            <option value="priority">Priority</option>
+            <option value="dueDate">Due Date</option>
+            <option value="alphabetical">Alphabetical</option>
+        </select>
+    </section>
+
+    <!-- Task Groups Section -->
+    <section id="taskGroups"></section>
+
+    <!-- Progress Chart Section -->
+    <section id="progressChartContainer" style="width: 80%; margin: 20px auto;">
+        <canvas id="progressChart"></canvas>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
